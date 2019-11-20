@@ -38,7 +38,9 @@
 			<?php
 
 				$conn = mysqli_connect("localhost","root","","livreor");
-				$request = "SELECT commentaire, id_utilisateur, date FROM commentaires";
+				$request = "SELECT commentaires.commentaire, utilisateurs.login, commentaires.date
+							FROM commentaires
+ 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ";
 				$query = mysqli_query($conn,$request);
 				$result = mysqli_fetch_all($query);
 
@@ -47,10 +49,7 @@
 					echo "<div class='paper'>";
 					echo "<p>".$infos[0]."</p>";
 					
-					$requestLogin = "SELECT login FROM utilisateurs WHERE id = '".$infos[1]."';";
-					$queryLogin = mysqli_query($conn, $requestLogin);
-					$login = mysqli_fetch_all($queryLogin);
-					echo "<p class='auteur'>".$login[0][0]."</p>";
+					echo "<p class='auteur'>".$infos[1]."</p>";
 
 					echo "<p>Le ".$infos[2]."</p>";
 					echo "</div>";
