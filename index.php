@@ -1,6 +1,5 @@
 <?php
 	session_start();
-
 ?> 
  
 <html>
@@ -10,7 +9,48 @@
 	</head>
 	
 	<body>
-		<?php include('header.php') ?>
+		<header>
+			<nav>
+				<a href="index.php">Accueil</a>
+				<a href="inscription.php">Inscription</a>
+				<a href="connexion.php">Connexion</a>
+				<?php
+					if(isset($_SESSION["connected"]))
+					{
+						echo "<a href='profil.php'>Profil</a>";	
+					}
+				?>
+				<a href="commentaire.php">Commentaire</a>
+				<a href="livre-or.php">Livre d'or</a>
+			</nav>
+
+			<input type='checkbox' id='checkBtn'/>
+			<label for='checkBtn'>
+				<img src='userConnect.png'/>
+			</label>
+
+			
+			<?php
+			
+				if(isset($_SESSION["connected"]))
+				{
+					echo " 
+							<div id='profilPaper' class='bubble'>
+								<a href=\"profil.php\">Profil</a>
+								<a href=\"index.php?deco=true\">Deconnecter</a>
+							</div>";
+				}
+				else if(!isset($_SESSION["connected"]))
+				{
+					echo " 
+							<div id='profilPaper' class='bubble'>
+								<a href=\"inscription.php\">Inscription</a>
+								<a href=\"connexion.php\">Se connecter</a>
+							</div>";
+				}
+			
+			?>
+		</header>
 		
 		<main>
 			
@@ -19,7 +59,7 @@
 				{
 					echo "<article class='paper'>
 							<h1>Le Coup Sanofi</h1>
-							<p>En 2016, les Philippines font une campagne nationale de vaccin contre la dengue. Sanofi reprend 
+							<p>En 2016, la Philippine fait une campagne nationale de vaccin contre la dengue. Sanofi reprend 
 							le marché et vend pour 50 Million d'€ de vaccin. De nombreux cas de décès suite a la prise du vaccin 
 							sont avéré. Sanofi niera les fait et ne remboursera pas  les Philippines</p>
 							
@@ -39,19 +79,14 @@
 	</body>
 </html>
  
- <?php
-
-	if(isset($_POST["profilBtn"]))
-	{
-		header("location:profil.php");
-	} 
-	else if(isset($_POST["decoBtn"]))
+<?php
+	if(isset($_GET["deco"]))
 	{
 		session_destroy();
 		header("location:index.php");
 	}
-
 ?>
+ 
  
 <style>
 
@@ -135,6 +170,9 @@
 		top:50px;
 		right:10px;
 
+		width:7%;
+		height:8%;
+
 		display:flex;
 		flex-direction:column;
 
@@ -158,16 +196,20 @@
 	    margin-left: -22px;
 	}
 
-	#profilPaper input
+	#profilPaper a
 	{
 		border-radius:11px;
 		background-color:orange;
 		border:0px;
 		margin:5px;
 		transition:background-color 0.4s ease;
+		text-align:center;
+
+		color:black;
+		text-decoration:none;
 	}
 
-	#profilPaper input:hover
+	#profilPaper a:hover
 	{
 		background-color:#ffcf01;
 		cursor:pointer;
@@ -179,7 +221,7 @@
 		width:80%;
 		height:20%;
 		
-		norder-radius:5px;
+		border-radius:5px;
 		box-shadow:1px 1px 5px 2px grey;
 		
 		margin:auto;
