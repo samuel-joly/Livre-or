@@ -96,7 +96,7 @@
 	{
 		header("location:connexion.php");
 	}
-	else if(isset($_POST["inscriptionBtnn"]))
+	else if(isset($_POST["inscriptionBtn"]))
 	{
 		header("location:inscription.php");
 	}
