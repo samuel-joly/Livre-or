@@ -6,36 +6,14 @@
 	<head>
 		<title>Connexion Entreprise</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<a href="index.php">Accueil</a>
-				<a href="inscription.php">Inscription</a>
-				<a href="connexion.php">Connexion</a>
-				<?php
-					if(isset($_SESSION["connected"]))
-					{
-						echo "<a href='profil.php'>Profil</a>";	
-					}
-				?>
-				<a href="commentaire.php">Commentaire</a>
-				<a href="livre-or.php">Livre d'or</a>
-			</nav>
-			
-			<?php
-			
-				if(isset($_SESSION["connected"]))
-				{
-					echo " <a href='profil.php'><img src='userConnect.png'/></a>";
-				}
-			
-			?>
-		</header>
+		<?php include('header.php') ?>
 		
 		<main>
-			<form action="" method="post">
+			<form id="commentaireForm" action="" method="post">
 				<label for="commentaire">Votre commentaire</label>
 				<textarea name="commentaire" cols="50" row="20"></textarea>
 				
@@ -66,67 +44,3 @@
 
 	}
 ?>
-
-<style>
- 
-	body
-	{
-		margin:0px;
-	}
- 
-	header
-	{
-		height:40px;
-		border-bottom:1px solid black;
-		display:flex;
-	}
-	
-	header nav
-	{
-		width:90%;
-		margin:auto;
-		
-		display:flex;
-		justify-content:space-evenly;
-	}
-	
-	header img
-	{
-		height:35px;
-		border-radius:50%;
-	}
-	
-	header nav a
-	{
-		color:black;
-		text-decoration:none;
-		font-size:20px;
-		height:100%;
-		
-		transition:color 0.3s ease;
-	}
-	
-	header nav a:hover
-	{
-		color:orange;
-	}
- 
- 
-	
-	form
-	{
-		width:30%;
-		display:flex;
-		flex-direction:column;
-		
-		margin:auto;
-		margin-top:10%;
-	}
-
-	textarea
-	{
-		width:100%;
-		height:200px;
-	}
- 
- </style>

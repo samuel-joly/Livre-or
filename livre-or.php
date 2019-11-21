@@ -6,33 +6,11 @@
 	<head>
 		<title>Connexion Entreprise</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<a href="index.php">Accueil</a>
-				<a href="inscription.php">Inscription</a>
-				<a href="connexion.php">Connexion</a>
-				<?php
-					if(isset($_SESSION["connected"]))
-					{
-						echo "<a href='profil.php'>Profil</a>";	
-					}
-				?>
-				<a href="commentaire.php">Commentaire</a>
-				<a href="livre-or.php">Livre d'or</a>
-			</nav>
-			
-			<?php
-			
-				if(isset($_SESSION["connected"]))
-				{
-					echo " <a href='profil.php'><img src='userConnect.png'/></a>";
-				}
-			
-			?>
-		</header>
+		<?php include('header.php') ?>
 		
 		<main>
 			<?php
@@ -40,7 +18,7 @@
 				$conn = mysqli_connect("localhost","root","","livreor");
 				$request = "SELECT commentaires.commentaire, utilisateurs.login, commentaires.date
 							FROM commentaires
- 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY commentaires.date DESC";
+ 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY commentaires.id DESC ";
 				$query = mysqli_query($conn,$request);
 				$result = mysqli_fetch_all($query);
 
@@ -53,6 +31,13 @@
 
 					echo "<p>Le ".$infos[2]."</p>";
 					echo "</div>";
+				}
+				if(isset($_SESSION["connected"]))
+				{
+					echo "<a href=\"commentaire.php\">ajouté un commentaire</a>";
+				}
+				else{
+					echo "seul les abonnés ont le droit de poster un commentaire";
 				}
 			?>
 		</main>
@@ -108,7 +93,62 @@
 	{
 		color:orange;
 	}
- 
+  	header input[type='checkbox']
+ 	{
+ 		display:none;
+ 	}
+	
+	header label
+	{
+		cursor:pointer;
+		
+	}
+
+	header input[type='checkbox']:checked~#profilPaper
+	{
+		opacity:1;
+	}
+
+	header input[type='checkbox']:checked~label
+	{
+		transform: translateX(0px);	
+	}
+	
+
+	.bubble 
+	{
+	    background: #cecdcb;
+	    color: #FFFFFF;
+
+	    border-radius: 10px;
+	    padding: 0px;
+
+		position:absolute;
+		top:50px;
+		right:10px;
+
+		display:flex;
+		flex-direction:column;
+
+		opacity:0;
+		transition:opacity 0.4s ease;
+	}
+
+	.bubble:after 
+	{
+	    content: '';
+	    position: absolute;
+	    display: block;
+
+	    width: 0;
+	    z-index: 1;
+	    border-style: solid;
+	    border-color: #cecdcb transparent;
+	    border-width: 0px 13px 16px;
+	    top: -16px;
+	    left: 88%;
+	    margin-left: -22px;
+	}
  
 	.paper
 	{
