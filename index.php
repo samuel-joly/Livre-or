@@ -24,19 +24,29 @@
 				<a href="livre-or.php">Livre d'or</a>
 			</nav>
 			
+			<input type='checkbox' id='checkBtn'/>
+
+
+			<label for='checkBtn'>	
+				<img src='userConnect.png'/>
+			</label>
+			
 			<?php
 			
 				if(isset($_SESSION["connected"]))
 				{
-					echo " <input type='checkbox' id='checkBtn'/>
-							
-
-						   <label for='checkBtn'>	
-					   			<img src='userConnect.png'/>
-				   			</label>
+					echo " 
 							<form id='profilPaper' class='bubble' method='post'>
 								<input type='submit' value='Profil' name='profilBtn'/>
 								<input type='submit' value='Déconnexion' name='decoBtn'/>
+							</form>";
+				}
+				else
+				{
+				echo " 
+							<form id='profilPaper' class='bubble' method='post'>
+								<input type='submit' value='Connexion' name='connectBtn'/>
+								<input type='submit' value='Inscription' name='inscriptionBtn'/>
 							</form>";
 				}
 			
@@ -82,6 +92,14 @@
 		header("location:index.php");
 	}
 
+	if(isset($_POST["connectBtn"]))
+	{
+		header("location:connexion.php");
+	}
+	else if(isset($_POST["inscriptionBtnn"]))
+	{
+		header("location:inscription.php");
+	}
 ?>
  
  
