@@ -6,6 +6,7 @@
 	<head>
 		<title>Connexion Entreprise</title>
 		<meta charset="utf-8"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	
 	<body>
@@ -47,75 +48,3 @@
 
 
 
-
-<style>
- 
-	body
-	{
-		margin:0px;
-	}
- 
-	header
-	{
-		height:40px;
-		border-bottom:1px solid black;
-		display:flex;
-	}
-	
-	header nav
-	{
-		width:90%;
-		margin:auto;
-		
-		display:flex;
-		justify-content:space-evenly;
-	}
-	
-	header img
-	{
-		height:35px;
-		border-radius:50%;
-	}
-	
-	header nav a
-	{
-		color:black;
-		text-decoration:none;
-		font-size:20px;
-		height:100%;
-		
-		transition:color 0.3s ease;
-	}
-	
-	header nav a:hover
-	{
-		color:orange;
-	}
- 
- 
-	.paper
-	{
-		width:80%;
-		height:20%;
-		
-		norder-radius:5px;
-		box-shadow:1px 1px 5px 2px grey;
-		
-		margin:auto;
-		margin-top:20px;
-	}
-
-	.paper p
-	{
-		text-align:justify;
-		width:90%;
-		margin:auto;
-	}
-	
-	.auteur
-	{
-		color:grey;
-		text-decoration:underline;
-	}
-
- </style>

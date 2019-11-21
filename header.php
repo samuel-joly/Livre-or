@@ -12,6 +12,7 @@ if(isset($_GET['destroy']))
 					if(isset($_SESSION["connected"]))
 					{
 						echo "<a href=\"index.php?destroy=end\" >Deconexion</a>";
+						echo "<a href='profil.php'>Profil</a>";	
 					} 
 					else
 					{
@@ -22,12 +23,6 @@ if(isset($_GET['destroy']))
 					}
 				?>
 				
-				<?php
-					if(isset($_SESSION["connected"]))
-					{
-						echo "<a href='profil.php'>Profil</a>";	
-					}
-				?>
 			<!--	<a href="commentaire.php">Commentaire</a>  !-->
 				<a href="livre-or.php">Livre d'or</a>
 			</nav>
@@ -36,7 +31,16 @@ if(isset($_GET['destroy']))
 			
 				if(isset($_SESSION["connected"]))
 				{
-					echo " <a href='profil.php'><img src='userConnect.png'/></a>";
+					echo " <input type='checkbox' id='checkBtn'/>
+							
+
+						   <label for='checkBtn'>	
+					   			<img src='userConnect.png'/>
+				   			</label>
+							<form id='profilPaper' class='bubble' method='post'>
+								<input type='submit' value='Profil' name='profilBtn'/>
+								<input type='submit' value='Déconnexion' name='decoBtn'/>
+							</form>";
 				}
 			
 			?>
