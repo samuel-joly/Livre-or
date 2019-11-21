@@ -1,5 +1,6 @@
 <?php
 	session_start();
+	
 ?> 
 
 <html>
@@ -9,41 +10,35 @@
 	</head>
 	
 	<body>
-		<header>
-			<nav>
-				<a href="index.php">Accueil</a>
-				<a href="inscription.php">Inscription</a>
-				<a href="connexion.php">Connexion</a>
-				<?php
-					if(isset($_SESSION["connected"]))
-					{
-						echo "<a href='profil.php'>Profil</a>";	
-					}
-				?>
-				<a href="commentaire.php">Commentaire</a>
-				<a href="livre-or.php">Livre d'or</a>
-			</nav>
-			
-			<?php
-			
-				if(isset($_SESSION["connected"]))
-				{
-					echo " <a href='profil.php'><img src='userConnect.png'/></a>";
-				}
-			
-			?>
-		</header>
+		<?php include('header.php') ?>
 		
 		<main>
 			<form action="" method="post">
 				<label for="login">Votre Login</label>
-				<input type="text" name="login"/>
+				<input type="text" name="login" required />
 				<label for="password">Votre mot de passe</label>
-				<input type="password" name="password"/>
+				<input type="password" name="password" required/>
+				<label for="repassword">Confirmer mot de passe</label>
+				<input type="password" name="repassword" required/>
 				<input type="submit" value="S'inscrire" name="submitBtn"/>
 			</form>
+			<?php
+				if(isset($_GET['error']))
+					{	switch ($_GET['error']) 
+						{
+						case 'dp':
+							$error="Le login est déja pris";
+							break;
+						case 'mpd':
+							$error="mot de passe et confirmation de mot de passe différent";
+							break;
+						}
+						echo "<b id=\"erreur\">".$error."</b>";	
+					}
+			 ?>
 		</main>
 	</body>
+	<?php include('footer.php'); ?>
 </html>
 
 <?php
@@ -62,7 +57,12 @@
 			if($response[$count][0] == $_POST["login"])
 			{
 				$_SESSION["validator"] = false;
-				header("location:inscription.php");
+				header("location:inscription.php?error=dp");
+			}
+			if($_POST["password"] != $_POST["repassword"])
+			{
+				$_SESSION["validator"] = false;
+				header("location:inscription.php?error=mpd");
 			}
 			$count++;
 		}
