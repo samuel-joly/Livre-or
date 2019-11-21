@@ -28,7 +28,7 @@ if(isset($_GET['destroy']))
 						echo "<a href='profil.php'>Profil</a>";	
 					}
 				?>
-				<a href="commentaire.php">Commentaire</a>
+			<!--	<a href="commentaire.php">Commentaire</a>  !-->
 				<a href="livre-or.php">Livre d'or</a>
 			</nav>
 			
