@@ -1,5 +1,6 @@
 <?php
 	session_start();
+
 ?> 
  
 <html>
@@ -18,13 +19,18 @@
 				{
 					echo "<article class='paper'>
 							<h1>Le Coup Sanofi</h1>
-							<p>En 2016, la Philippine fait une campagne nationale de vaccin contre la dengue. Sanofi reprend 
+							<p>En 2016, les Philippines font une campagne nationale de vaccin contre la dengue. Sanofi reprend 
 							le marché et vend pour 50 Million d'€ de vaccin. De nombreux cas de décès suite a la prise du vaccin 
 							sont avéré. Sanofi niera les fait et ne remboursera pas  les Philippines</p>
 							
 							<p class='auteur'>Etienne Chourad</p>
 						</article>";
 			
+				}
+				else
+				{
+					echo "<article class='paper'><h1>Nos articles sont disponibles pour les utilisateurs connecté.</h1>
+						<p>Pour vous connecter, <a href='connexion'>cliquez ici</a></p></article>";
 				}
 			?>
 		
@@ -33,13 +39,26 @@
 	</body>
 </html>
  
- 
+ <?php
+
+	if(isset($_POST["profilBtn"]))
+	{
+		header("location:profil.php");
+	} 
+	else if(isset($_POST["decoBtn"]))
+	{
+		session_destroy();
+		header("location:index.php");
+	}
+
+?>
  
 <style>
- 
+
 	body
 	{
 		margin:0px;
+		overflow-x: hidden;
 	}
  
 	header
@@ -62,6 +81,7 @@
 	{
 		height:35px;
 		border-radius:50%;
+		margin-right:13px;
 	}
 	
 	header nav a
@@ -79,7 +99,81 @@
 		color:orange;
 	}
  
- 
+ 	
+
+ 	header input[type='checkbox']
+ 	{
+ 		display:none;
+ 	}
+	
+	header label
+	{
+		cursor:pointer;
+		
+	}
+
+	header input[type='checkbox']:checked~#profilPaper
+	{
+		opacity:1;
+	}
+
+	header input[type='checkbox']:checked~label
+	{
+		transform: translateX(0px);	
+	}
+	
+
+	.bubble 
+	{
+	    background: #cecdcb;
+	    color: #FFFFFF;
+
+	    border-radius: 10px;
+	    padding: 0px;
+
+		position:absolute;
+		top:50px;
+		right:10px;
+
+		display:flex;
+		flex-direction:column;
+
+		opacity:0;
+		transition:opacity 0.4s ease;
+	}
+
+	.bubble:after 
+	{
+	    content: '';
+	    position: absolute;
+	    display: block;
+
+	    width: 0;
+	    z-index: 1;
+	    border-style: solid;
+	    border-color: #cecdcb transparent;
+	    border-width: 0px 13px 16px;
+	    top: -16px;
+	    left: 88%;
+	    margin-left: -22px;
+	}
+
+	#profilPaper input
+	{
+		border-radius:11px;
+		background-color:orange;
+		border:0px;
+		margin:5px;
+		transition:background-color 0.4s ease;
+	}
+
+	#profilPaper input:hover
+	{
+		background-color:#ffcf01;
+		cursor:pointer;
+	}
+
+
 	.paper
 	{
 		width:80%;
@@ -109,4 +203,6 @@
 		text-decoration:underline;
 	}
 	
+
+
  </style>

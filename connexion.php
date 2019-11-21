@@ -1,5 +1,9 @@
 <?php
 	session_start();
+	if(isset($_GET['error']))
+	{
+		$err="Mot de passe ou login incorect";
+	}
 ?> 
 
 <html>
@@ -19,8 +23,13 @@
 				<input type="password" name="password" required/>
 				<input type="submit" value="Se connecter" name="submitBtn"/>
 			</form>
+		<?php 
+		if(isset($err))
+		{
+			echo "<b>".$err."</b>";
+		}
+		?>
 		</main>
-		
 	</body>
 </html>
 
@@ -35,13 +44,18 @@
 		$count = 0;
 		while($count < count($result))
 		{
+
 			if($_POST["login"] == $result[$count][0] && password_verify($_POST["password"], $result[$count][1]))
 			{
 				$_SESSION["connected"] = true;
 				$_SESSION["login"] = $_POST["login"];
+
 				header("location:index.php");
 			}
-			$count++;
+					$count++;
+		}
+		if (!isset($_SESSION["connected"])) {
+			header("location:connexion.php?error=errcon");
 		}
 	}
 

@@ -1,8 +1,27 @@
+<?php
+if(isset($_GET['destroy']))
+	{
+		session_destroy();
+		header("location:index.php");
+	}
+?>
 <header>
 			<nav>
 				<a href="index.php">Accueil</a>
-				<a href="inscription.php">Inscription</a>
-				<a href="connexion.php">Connexion</a>
+				<?php
+					if(isset($_SESSION["connected"]))
+					{
+						echo "<a href=\"index.php?destroy=end\" >Deconexion</a>";
+					} 
+					else
+					{
+						echo "
+						<a href=\"inscription.php\">Inscription</a>
+						<a href=\"connexion.php\">Connexion</a>
+						";
+					}
+				?>
+				
 				<?php
 					if(isset($_SESSION["connected"]))
 					{
