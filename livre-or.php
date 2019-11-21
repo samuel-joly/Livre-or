@@ -40,7 +40,7 @@
 				$conn = mysqli_connect("localhost","root","","livreor");
 				$request = "SELECT commentaires.commentaire, utilisateurs.login, commentaires.date
 							FROM commentaires
- 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ";
+ 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY commentaires.date DESC";
 				$query = mysqli_query($conn,$request);
 				$result = mysqli_fetch_all($query);
 
