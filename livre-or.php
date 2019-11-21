@@ -15,12 +15,16 @@
 			<?php
 
 				$conn = mysqli_connect("localhost","root","","livreor");
-				$request = "SELECT commentaires.commentaire, utilisateurs.login, commentaires.date
-							FROM commentaires
- 							INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY commentaires.id DESC ";
+				$request = "SELECT commentaires.commentaire, utilisateurs.login, date_format(commentaires.date,\"%e %M %Y\") FROM commentaires INNER JOIN utilisateurs ON commentaires.id_utilisateur = utilisateurs.id ORDER BY commentaires.id DESC ";
 				$query = mysqli_query($conn,$request);
 				$result = mysqli_fetch_all($query);
-
+				if(isset($_SESSION["connected"]))
+				{
+					include("commentaire.php");
+				}
+				else{
+					echo "seul les abonnés ont le droit de poster un commentaire";
+				}
 				foreach($result as $commentaire => $infos)
 				{
 					echo "<div class='paper'>";
@@ -31,13 +35,8 @@
 					echo "<p>Le ".$infos[2]."</p>";
 					echo "</div>";
 				}
-				if(isset($_SESSION["connected"]))
-				{
-					echo "<a href=\"commentaire.php\">ajouté un commentaire</a>";
-				}
-				else{
-					echo "seul les abonnés ont le droit de poster un commentaire";
-				}
+				
+
 			?>
 		</main>
 	</body>
