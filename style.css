@@ -211,7 +211,18 @@
 		width:30%;
 		margin:auto;
 		margin-bottom:5%;
+		padding:7px;
+
+		border-radius:5px;
+		box-shadow:1px 1px 5px 2px grey;
+
+		margin-top:10%;
 	} 
+
+	main form input
+	{
+		margin-bottom:5px;
+	}
 
 	#no-connect
 	{
