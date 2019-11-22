@@ -31,17 +31,29 @@ if(isset($_GET['destroy']))
 			
 				if(isset($_SESSION["connected"]))
 				{
-					echo " <input type='checkbox' id='checkBtn'/>
-							
-
-						   <label for='checkBtn'>	
-					   			<img src='userConnect.png'/>
-				   			</label>
-							<form id='profilPaper' class='bubble' method='post'>
-								<input type='submit' value='Profil' name='profilBtn'/>
-								<input type='submit' value='Déconnexion' name='decoBtn'/>
-							</form>";
+					echo " 
+							<div id='profilPaper' class='bubble'>
+								<a href=\"profil.php\">Profil</a>
+								<a href=\"index.php?deco=true\">Deconnecter</a>
+							</div>";
 				}
+				else if(!isset($_SESSION["connected"]))
+				{
+					echo " 
+							<div id='profilPaper' class='bubble'>
+								<a href=\"inscription.php\">Inscription</a>
+								<a href=\"connexion.php\">Se connecter</a>
+							</div>";
+				}
+
+
+				if(isset($_GET["deco"]))
+				{
+					session_destroy();
+					header("location:index.php");
+				}
+
+ 
 			
 			?>
 </header>
