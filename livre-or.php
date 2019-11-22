@@ -4,7 +4,7 @@
 
 <html>
 	<head>
-		<title>Connexion Entreprise</title>
+		<title>Livre Or</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
@@ -24,17 +24,16 @@
 					include("commentaire.php");
 				}
 				else{
-					echo "seul les abonnés ont le droit de poster un commentaire";
+					echo "<p id='no-connect'>Seul les connectés ont le droit de poster un commentaire.<br/>
+					Pour se connecter <a href='connexion.php'>cliquez ici</a></p>";
 				}
 				foreach($result as $commentaire => $infos)
 				{
-					echo "<div class='paper'>";
-					echo "<p>".$infos[0]."</p>";
-					
-					echo "<p class='auteur'>".$infos[1]."</p>";
-
-					echo "<p>Le ".$infos[2]."</p>";
-					echo "</div>";
+					echo "
+					<div class='paperOr'>
+						<p class='commInfos'><img src='userConnect.png'/> Ecrit par <b>".$infos[1]."</b> le <b>".$infos[2]."</b></p>
+						<p class='comm'>".$infos[0]."</p>
+					</div>";
 				}
 				
 

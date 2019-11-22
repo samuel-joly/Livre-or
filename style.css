@@ -4,6 +4,7 @@
 	body
 	{
 		margin:0px;
+		padding:0px;
 		overflow-x: hidden;
 	}
  
@@ -151,12 +152,57 @@
 		margin:auto;
 	}
 	
-	.auteur
+
+	.paperOr
 	{
-		color:grey;
-		text-decoration:underline;
+		width:80%;
+		height:20%;
+		
+		border-radius:5px;
+		box-shadow:1px 1px 5px 2px grey;
+		
+		margin:auto;
+		margin-bottom:3%;
 	}
-	
+
+	.commInfos
+	{
+		border-bottom:1px solid;
+		border-image:linear-gradient(to right, black, transparent 80%, transparent) 100% 1;
+		height:30px;
+	}
+
+	.commInfos img
+	{
+		height:30px;
+		float:left;
+	}
+
+	.comm
+	{
+		text-align:justify;
+		width:80%;
+	}
+
+	#commForm
+	{
+		margin-top:5%;
+		border-radius:5px;
+		box-shadow:1px 1px 5px 2px grey;
+		padding:10px; 
+	}
+
+	#commForm textarea
+	{
+		width:100%;
+		height:200px;
+	}
+
+	#commForm input
+	{
+		margin-top:5px;
+	}
+
 	main form
 	{
 		display:flex;
@@ -166,5 +212,16 @@
 		margin:auto;
 		margin-bottom:5%;
 	} 
+
+	#no-connect
+	{
+		color:red;
+		text-align:center;
+	}
+
+	#no-connect a
+	{
+		color:red;
+	}
 
  </style>

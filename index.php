@@ -4,7 +4,7 @@
  
 <html>
 	<head>
-		<title>Présentation Entreprise</title>
+		<title>Accueil</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
@@ -29,8 +29,9 @@
 				}
 				else
 				{
-					echo "<article class='paper'><h1>Nos articles sont disponibles pour les utilisateurs connecté.</h1>
-						<p>Pour vous connecter, <a href='connexion'>cliquez ici</a></p></article>";
+					echo "<article class='paper'><h1><u>Nos articles sont disponibles pour les utilisateurs connecté.</u></h1>
+						<p style='text-align:center;'>Pour vous connecter, <a href='connexion'>cliquez ici</a>.<br/>
+						Pour vous inscrire, <a href=inscription'>cliquez ici</a>.</p></article>";
 				}
 			?>
 		

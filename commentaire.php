@@ -1,9 +1,9 @@
 
-			<form action="" method="post">
+			<form id="commForm" action="" method="post">
 				<label for="commentaire">Votre commentaire</label>
 				<textarea name="commentaire" cols="50" row="20"></textarea>
 				
-				<input type="submit" value="envoyer" name="submitBtn"/>
+				<input type="submit" value="Envoyer" name="submitBtn"/>
 			</form> 
 
 <?php
@@ -26,22 +26,4 @@
 	}
 ?>
 
-<style>
-	
-	form
-	{
-		width:30%;
-		display:flex;
-		flex-direction:column;
-		
-		margin:auto;
-		margin-top:10%;
-	}
 
-	textarea
-	{
-		width:100%;
-		height:200px;
-	}
- 
- </style>
