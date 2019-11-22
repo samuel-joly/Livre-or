@@ -25,10 +25,10 @@
 				<input type="submit" value="Se connecter" name="submitBtn"/>
 			</form>
 		<?php 
-		if(isset($err))
-		{
-			echo "<b>".$err."</b>";
-		}
+			if(isset($err))
+			{
+				echo "<b>".$err."</b>";
+			}
 		?>
 		</main>
 	</body>

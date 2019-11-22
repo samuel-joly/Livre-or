@@ -17,21 +17,24 @@
 			<?php
 				if(isset($_SESSION["connected"]))
 				{
-					echo "<article class='paper'>
+				?>
+				<article class='paper'>
 							<h1>Le Coup Sanofi</h1>
 							<p>En 2016, la Philippine fait une campagne nationale de vaccin contre la dengue. Sanofi reprend 
 							le marché et vend pour 50 Million d'€ de vaccin. De nombreux cas de décès suite a la prise du vaccin 
 							sont avéré. Sanofi niera les fait et ne remboursera pas  les Philippines</p>
 							
 							<p class='auteur'>Etienne Chourad</p>
-						</article>";
-			
+						</article>
+				<?php
 				}
 				else
 				{
-					echo "<article class='paper'><h1><u>Nos articles sont disponibles pour les utilisateurs connecté.</u></h1>
+				?>
+					<article class='paper'><h1><u>Nos articles sont disponibles pour les utilisateurs connecté.</u></h1>
 						<p style='text-align:center;'>Pour vous connecter, <a href='connexion'>cliquez ici</a>.<br/>
-						Pour vous inscrire, <a href=inscription'>cliquez ici</a>.</p></article>";
+						Pour vous inscrire, <a href=inscription'>cliquez ici</a>.</p></article>;
+			<?php
 				}
 			?>
 		
