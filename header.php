@@ -8,10 +8,12 @@ if(isset($_GET['destroy']))
 <header>
 			<nav>
 				<a href="index.php">Accueil</a>
+				<a href="livre-or.php">Livre d'or</a>
 				<?php
+
 					if(isset($_SESSION["connected"]))
 					{
-						echo "<a href=\"index.php?destroy=end\" >Deconexion</a>";
+						echo "<a href=\"index.php?destroy=end\">Deconnexion</a>";
 						echo "<a href='profil.php'>Profil</a>";	
 					} 
 					else
@@ -24,8 +26,12 @@ if(isset($_GET['destroy']))
 				?>
 				
 			<!--	<a href="commentaire.php">Commentaire</a>  !-->
-				<a href="livre-or.php">Livre d'or</a>
 			</nav>
+			
+			<input type='checkbox' id='checkBtn'/>
+			<label for='checkBtn'>
+				<img src='userConnect.png'/>
+			</label>
 			
 			<?php
 			
@@ -34,26 +40,16 @@ if(isset($_GET['destroy']))
 					echo " 
 							<div id='profilPaper' class='bubble'>
 								<a href=\"profil.php\">Profil</a>
-								<a href=\"index.php?deco=true\">Deconnecter</a>
+								<a href=\"index.php?destroy=true\">Deconnecter</a>
 							</div>";
 				}
-				else if(!isset($_SESSION["connected"]))
+				else
 				{
 					echo " 
 							<div id='profilPaper' class='bubble'>
 								<a href=\"inscription.php\">Inscription</a>
 								<a href=\"connexion.php\">Se connecter</a>
 							</div>";
-				}
-
-
-				if(isset($_GET["deco"]))
-				{
-					session_destroy();
-					header("location:index.php");
-				}
-
- 
-			
+				}			
 			?>
 </header>
