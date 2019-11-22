@@ -12,7 +12,7 @@
 			$sql="SELECT COUNT(login) FROM `utilisateurs` WHERE login=\"".$_POST['login']."\" ;";
 			$envoit=mysqli_query($bd,$sql);
 			$count=mysqli_fetch_all($envoit);
-			mysqli_close($bd);
+		 	mysqli_close($bd);
 		if($count[0][0]==0||$_POST['login']==$_SESSION['login'])
 		{
 		
