@@ -36,7 +36,7 @@
 					</div>";
 				}
 				
-
+				include("footer.php");
 			?>
 		</main>
 	</body>

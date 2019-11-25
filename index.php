@@ -61,6 +61,7 @@
 						Pour vous inscrire, <a href='inscription' style="color:green;">cliquez ici</a>.</p></article>;
 			<?php
 				}
+				include("footer.php");
 			?>
 		
 		</main>

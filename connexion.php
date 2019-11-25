@@ -29,6 +29,7 @@
 			{
 				echo "<b>".$err."</b>";
 			}
+		include("footer.php");
 		?>
 		</main>
 	</body>
