@@ -20,7 +20,7 @@
 				<input type="password" name="password" required/>
 				<label for="repassword">Confirmer mot de passe</label>
 				<input type="password" name="repassword" required/>
-				<input type="submit" value="S'inscrire" name="submitBtn"/>
+				<input id="valid" type="submit" value="S'inscrire" name="submitBtn"/>
 			</form>
 			
 			<?php

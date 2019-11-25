@@ -3,9 +3,9 @@ body
 {
 	margin:0px;
 	padding:0px;
-	
 	background-image:url("money.jpg");
 	background-attachment: fixed;
+	min-height: 100vh;
 }
 
 header
@@ -266,3 +266,18 @@ main form input
 	padding: 1%;
 }
 
+#valid{
+	background-color: #71955d;
+	color: white;
+	border-radius: 10px;
+	width: 100%;
+}
+
+footer
+{
+	background-color:rgba(255,255,255,0.8);
+	text-align: center;
+	width: 100%;
+	position: relative;
+	bottom: 0;
+}

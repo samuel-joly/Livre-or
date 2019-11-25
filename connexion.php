@@ -22,16 +22,16 @@
 				<input type="text" name="login"/ required>
 				<label for="password">Votre mot de passe</label>
 				<input type="password" name="password" required/>
-				<input type="submit" value="Se connecter" name="submitBtn"/>
+				<input id="valid" type="submit" value="Se connecter" name="submitBtn"/>
 			</form>
 		<?php 
 			if(isset($err))
 			{
 				echo "<b>".$err."</b>";
 			}
-		include("footer.php");
 		?>
 		</main>
+		<?php include("footer.php"); ?>
 	</body>
 </html>
 

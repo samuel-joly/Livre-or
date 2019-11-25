@@ -72,7 +72,7 @@
 				<label>Confirmer mot de passe :</label><input  type="password" name="remdp">
 				<label>Mot de passe :</label><input  type="password" name="password" required>
 				<label>supprimer mon compte :</label><input type="checkbox" name="sup" >
-				<input type="submit" name="env-modif">
+				<input id="valid" type="submit" name="env-modif">
 			</form>
 			<?php if(isset($err))
 					{

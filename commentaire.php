@@ -3,7 +3,7 @@
 				<label for="commentaire">Votre commentaire</label>
 				<textarea name="commentaire" cols="50" row="20"></textarea>
 				
-				<input type="submit" value="Envoyer" name="submitBtn"/>
+				<input id="valid" type="submit" value="Envoyer" name="submitBtn"/>
 			</form> 
 
 <?php
