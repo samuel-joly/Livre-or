@@ -1,7 +1,7 @@
 <?php
-if(isset($_GET['destroy']))
+	if(isset($_GET['destroy']))
 	{
-		session_destroy();
+		session_destroy();  
 		header("location:index.php");
 	}
 ?>
@@ -13,7 +13,7 @@ if(isset($_GET['destroy']))
 
 					if(isset($_SESSION["connected"]))
 					{
-						echo "<a href=\"index.php?destroy=end\">Deconnexion</a>";
+						echo "<a href=\"index.php?destroy\">Deconnexion</a>";
 						echo "<a href='profil.php'>Profil</a>";	
 					} 
 					else
