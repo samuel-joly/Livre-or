@@ -37,9 +37,9 @@
 						echo "<b id=\"erreur\">".$error."</b>";	
 					}
 			 ?>
+			<?php include('footer.php'); ?>
 		</main>
 	</body>
-	<?php include('footer.php'); ?>
 </html>
 
 <?php

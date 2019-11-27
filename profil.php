@@ -71,15 +71,15 @@
 				<label>Nouveau mot de passe :</label><input  type="password" name="nouvmdp">
 				<label>Confirmer mot de passe :</label><input  type="password" name="remdp">
 				<label>Mot de passe :</label><input  type="password" name="password" required>
-				<label>supprimer mon compte :</label><input type="checkbox" name="sup" >
-				<input type="submit" name="env-modif">
+				<label>supprimer mon compte :</label><input type="checkbox" name="sup" id="checksup" >
+				<input id="valid" type="submit" name="env-modif">
 			</form>
 			<?php if(isset($err))
 					{
 						echo $err;
 					}
 			?>
+			<?php include('footer.php') ?>
 		</main>
-		<?php include('footer.php') ?>
 	</body>
 </html>

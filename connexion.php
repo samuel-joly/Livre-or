@@ -19,19 +19,22 @@
 		<main>
 			<form action="" method="post">
 				<label for="login">Votre Login</label>
-				<input type="text" name="login"/ required>
+				<input type="text" name="login" required/>
 				<label for="password">Votre mot de passe</label>
 				<input type="password" name="password" required/>
-				<input type="submit" value="Se connecter" name="submitBtn"/>
+				<input id="valid" type="submit" value="Se connecter" name="submitBtn"/>
 			</form>
 		<?php 
 			if(isset($err))
 			{
 				echo "<b>".$err."</b>";
 			}
+		
 		?>
+		<?php 	include("footer.php"); ?>
 		</main>
 	</body>
+	
 </html>
 
 <?php
@@ -53,7 +56,7 @@
 
 				header("location:index.php");
 			}
-					$count++;
+			$count++;
 		}
 		if (!isset($_SESSION["connected"])) {
 			header("location:connexion.php?error=errcon");
