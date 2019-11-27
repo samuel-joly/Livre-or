@@ -105,13 +105,13 @@
 				$query = mysqli_query($conn,$request);
 				$result = mysqli_fetch_all($query);
 				
-				
+				if(isset($_SESSION["login"])){
 				$idRequest = "SELECT utilisateurs.id FROM utilisateurs WHERE login = '".$_SESSION["login"]."'";
 				$idQuery = mysqli_query($conn,$idRequest);
 				$idResult = mysqli_fetch_all($idQuery);
 				
 				$id = $idResult[0][0];
-				
+				}
 				if(isset($_SESSION["connected"]))
 				{
 					include("commentaire.php");
@@ -129,7 +129,7 @@
 						<form method=\"post\" action=\"\" style='background-color:transparent;box-shadow:0px 0px 0px 0px;margin:0px;'>
 							<label for=\"likeBtn".$infos[4]."\">";
 
-							if(isLiked($id,$infos[4]))
+							if(isset($id)&&isLiked($id,$infos[4]))
 							{
 								echo "<div class='likeZone'><img style='cursor:pointer;width:40px;' src=\"fullHeart.png\"/><p>".howManyComm($infos[4])."</p></div>";
 							}
