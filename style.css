@@ -261,11 +261,14 @@ main form input
 	margin-bottom:20px;
 	box-shadow: 1px 1px 5px 2px grey;
 	border-radius:5px;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 #no-connect a
 {
 	color:green;
+	
 }
 
 .auteur
@@ -291,6 +294,7 @@ footer
 	bottom: 0;
 	padding-top:50px;
 	height:50px;
+	font-size: 120%;
 }
 
 #checksup
