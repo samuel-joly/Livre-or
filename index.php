@@ -67,6 +67,3 @@
 		</main>
 	</body>
 </html>
- 
-
- 

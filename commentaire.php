@@ -1,10 +1,9 @@
-
-			<form id="commForm" action="" method="post">
-				<label for="commentaire">Votre commentaire</label>
-				<textarea name="commentaire" cols="50" row="20"></textarea>
-				
-				<input id="valid" type="submit" value="Envoyer" name="submitBtn"/>
-			</form> 
+<form id="commForm" action="" method="post">
+	<label for="commentaire">Votre commentaire</label>
+	<textarea name="commentaire" cols="50" row="20"></textarea>
+	
+	<input id="valid" type="submit" value="Envoyer" name="submitBtn"/>
+</form> 
 
 <?php
 	if(isset($_POST["submitBtn"]))
@@ -25,5 +24,3 @@
 
 	}
 ?>
-
-

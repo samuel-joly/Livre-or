@@ -62,6 +62,4 @@
 			header("location:connexion.php?error=errcon");
 		}
 	}
-
-
 ?>
